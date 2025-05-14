@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .calculator {
+      display: inline-block;
+      border: 2px solid #333;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #f5f5f5;
+    }
+
+    input[type="text"] {
+      width: 200px;
+      height: 30px;
+      font-size: 20px;
+      margin-bottom: 10px;
+      text-align: right;
+    }
+
+    .buttons button {
+      width: 45px;
+      height: 45px;
+      font-size: 18px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .buttons {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator">
+    <input type="text" id="display" disabled>
+    <div class="buttons">
+      <button onclick="press('7')">7</button>
+      <button onclick="press('8')">8</button>
+      <button onclick="press('9')">9</button>
+      <button onclick="press('/')">/</button><br>
+
+      <button onclick="press('4')">4</button>
+      <button onclick="press('5')">5</button>
+      <button onclick="press('6')">6</button>
+      <button onclick="press('*')">*</button><br>
+
+      <button onclick="press('1')">1</button>
+      <button onclick="press('2')">2</button>
+      <button onclick="press('3')">3</button>
+      <button onclick="press('-')">-</button><br>
+
+      <button onclick="press('0')">0</button>
+      <button onclick="press('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="press('+')">+</button><br>
+
+      <button onclick="clearDisplay()" style="width: 190px; background-color: #ff4d4d;">C</button>
+    </div>
+  </div>
+
+  <script>
+    let display = document.getElementById('display');
+
+    function press(value) {
+      display.value += value;
+    }
+
+    function calculate() {
+      try {
+        display.value = eval(display.value);
+      } catch {
+        display.value = 'Error';
+      }
+    }
+
+    function clearDisplay() {
+      display.value = '';
+    }
+  </script>
+
+</body>
+</html>
